@@ -6,7 +6,7 @@ class UserService {
 
     async findByEmail(req) {
         try {
-            const {email} = req.params;
+            const { email } = req.params;
             this.validateRequestData(email);
 
             let user = await UserRepository.findByEmail(email);
@@ -29,13 +29,13 @@ class UserService {
     }
 
     validateRequestData(email) {
-        if (!email) {
-            throw new UserException(httpStatus.BAD_REQUEST, 'Email was not informed');
+        if(!email) {
+            throw new UserException(httpStatus.BAD_REQUEST , 'Email was not informed');
         }
     }
 
     validateIfUserExixts(user) {
-        if (!user) {
+        if(!user) {
             throw new UserException(httpStatus.OBJECT_NOT_FOUND, "Object not found")
         }
     }

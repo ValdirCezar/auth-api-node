@@ -13,7 +13,7 @@ class UserRepository {
 
     async findByEmail(email) {
         try {
-            return await User.findOne(email)
+            return await User.findOne({where: {email}})
         } catch (e) {
             console.error(e.message);
             return null;
